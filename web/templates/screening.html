@@ -1,13 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Screening — ACBC Survey{% endblock %}
-
-{% block progress %}
-<div class="progress-bar">
-  <div class="progress-fill" style="width: {{ progress }}%"></div>
-</div>
-<div class="stage-label">Screening — Page {{ question.page_number }} of {{ question.total_pages }}</div>
-{% endblock %}
+{% block title %}Screening . ACBC Survey{% endblock %}
 
 {% block content %}
 <div class="question-panel">
@@ -19,14 +12,30 @@
       {% for scenario in question.scenarios %}
       <div class="scenario-card">
         <h3>Option {{ loop.index }}</h3>
+
         <table class="scenario-table">
           {% for attr_name in attr_names %}
+          {% set defn = (attr_defs | default({})).get(attr_name, "") %}
           <tr>
-            <td class="attr-name">{{ attr_name }}</td>
+            <td class="attr-name">
+              {% set defn = (attr_defs | default({})).get(attr_name, "") %}
+
+              {% if defn %}
+              <span class="var-help">
+                <span class="var-label">{{ attr_name }}</span>
+                <span class="tooltip tooltip--right" role="tooltip">
+                  {{ defn }}
+                </span>
+              </span>
+              {% else %}
+                {{ attr_name }}
+              {% endif %}
+            </td>
             <td class="attr-value">{{ scenario.levels[attr_name] }}</td>
           </tr>
           {% endfor %}
         </table>
+
         <div class="accept-reject">
           <label class="radio-pill radio-accept">
             <input type="radio" name="scenario_{{ loop.index0 }}" value="accept" required>
@@ -40,6 +49,7 @@
       </div>
       {% endfor %}
     </div>
+
     <button type="submit" class="btn btn-primary">Next</button>
   </form>
 </div>

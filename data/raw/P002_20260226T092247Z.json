@@ -1,0 +1,375 @@
+{
+  "participant_id": "P002",
+  "timestamp": "20260226T092247Z",
+  "seed": null,
+  "config_name": "Decision-Making Under Risk Preferences",
+  "config": {
+    "name": "Decision-Making Under Risk Preferences",
+    "description": "A simple demo survey exploring preferences when making decisions under risk. Attributes cover potential upside, rewardvariability, worst-case outcome, and timing.\n",
+    "attributes": [
+      {
+        "name": "Gain Amount",
+        "levels": [
+          "€20",
+          "€60",
+          "€120",
+          "€240"
+        ]
+      },
+      {
+        "name": "Loss Amount (Worst-Case Outcome)",
+        "levels": [
+          "€0",
+          "−€20",
+          "−€60",
+          "−€120"
+        ]
+      },
+      {
+        "name": "Probability of Gain",
+        "levels": [
+          "20%",
+          "40%",
+          "60%",
+          "80%"
+        ]
+      },
+      {
+        "name": "Delay of Outcome",
+        "levels": [
+          "Immediate",
+          "In 1 week",
+          "1 month",
+          "3 months"
+        ]
+      }
+    ],
+    "settings": {
+      "screening_pages": 5,
+      "scenarios_per_page": 4,
+      "max_unacceptable_questions": 4,
+      "max_must_have_questions": 3,
+      "choice_tournament_size": 3,
+      "unacceptable_threshold": 0.75,
+      "must_have_threshold": 0.9
+    }
+  },
+  "byo_ideal": {
+    "Gain Amount": "€240",
+    "Loss Amount (Worst-Case Outcome)": "−€60",
+    "Probability of Gain": "80%",
+    "Delay of Outcome": "1 month"
+  },
+  "screening_scenarios": [
+    [
+      {
+        "Gain Amount": "€240",
+        "Loss Amount (Worst-Case Outcome)": "€0",
+        "Probability of Gain": "20%",
+        "Delay of Outcome": "3 months"
+      },
+      {
+        "Gain Amount": "€240",
+        "Loss Amount (Worst-Case Outcome)": "−€120",
+        "Probability of Gain": "80%",
+        "Delay of Outcome": "3 months"
+      },
+      {
+        "Gain Amount": "€20",
+        "Loss Amount (Worst-Case Outcome)": "−€60",
+        "Probability of Gain": "40%",
+        "Delay of Outcome": "In 1 week"
+      },
+      {
+        "Gain Amount": "€120",
+        "Loss Amount (Worst-Case Outcome)": "−€60",
+        "Probability of Gain": "80%",
+        "Delay of Outcome": "1 month"
+      }
+    ],
+    [
+      {
+        "Gain Amount": "€240",
+        "Loss Amount (Worst-Case Outcome)": "−€120",
+        "Probability of Gain": "20%",
+        "Delay of Outcome": "Immediate"
+      },
+      {
+        "Gain Amount": "€120",
+        "Loss Amount (Worst-Case Outcome)": "−€60",
+        "Probability of Gain": "80%",
+        "Delay of Outcome": "Immediate"
+      },
+      {
+        "Gain Amount": "€240",
+        "Loss Amount (Worst-Case Outcome)": "−€20",
+        "Probability of Gain": "40%",
+        "Delay of Outcome": "In 1 week"
+      },
+      {
+        "Gain Amount": "€240",
+        "Loss Amount (Worst-Case Outcome)": "−€120",
+        "Probability of Gain": "80%",
+        "Delay of Outcome": "In 1 week"
+      }
+    ],
+    [
+      {
+        "Gain Amount": "€240",
+        "Loss Amount (Worst-Case Outcome)": "€0",
+        "Probability of Gain": "80%",
+        "Delay of Outcome": "1 month"
+      },
+      {
+        "Gain Amount": "€240",
+        "Loss Amount (Worst-Case Outcome)": "−€60",
+        "Probability of Gain": "80%",
+        "Delay of Outcome": "In 1 week"
+      },
+      {
+        "Gain Amount": "€20",
+        "Loss Amount (Worst-Case Outcome)": "−€20",
+        "Probability of Gain": "80%",
+        "Delay of Outcome": "1 month"
+      },
+      {
+        "Gain Amount": "€240",
+        "Loss Amount (Worst-Case Outcome)": "−€120",
+        "Probability of Gain": "60%",
+        "Delay of Outcome": "In 1 week"
+      }
+    ],
+    [
+      {
+        "Gain Amount": "€240",
+        "Loss Amount (Worst-Case Outcome)": "€0",
+        "Probability of Gain": "80%",
+        "Delay of Outcome": "3 months"
+      },
+      {
+        "Gain Amount": "€240",
+        "Loss Amount (Worst-Case Outcome)": "−€60",
+        "Probability of Gain": "20%",
+        "Delay of Outcome": "1 month"
+      },
+      {
+        "Gain Amount": "€120",
+        "Loss Amount (Worst-Case Outcome)": "−€20",
+        "Probability of Gain": "80%",
+        "Delay of Outcome": "In 1 week"
+      },
+      {
+        "Gain Amount": "€60",
+        "Loss Amount (Worst-Case Outcome)": "−€60",
+        "Probability of Gain": "80%",
+        "Delay of Outcome": "3 months"
+      }
+    ],
+    [
+      {
+        "Gain Amount": "€20",
+        "Loss Amount (Worst-Case Outcome)": "−€60",
+        "Probability of Gain": "80%",
+        "Delay of Outcome": "1 month"
+      },
+      {
+        "Gain Amount": "€20",
+        "Loss Amount (Worst-Case Outcome)": "−€60",
+        "Probability of Gain": "40%",
+        "Delay of Outcome": "1 month"
+      },
+      {
+        "Gain Amount": "€120",
+        "Loss Amount (Worst-Case Outcome)": "−€60",
+        "Probability of Gain": "40%",
+        "Delay of Outcome": "3 months"
+      },
+      {
+        "Gain Amount": "€240",
+        "Loss Amount (Worst-Case Outcome)": "€0",
+        "Probability of Gain": "60%",
+        "Delay of Outcome": "1 month"
+      }
+    ]
+  ],
+  "screening_responses": [
+    {
+      "page_number": 1,
+      "responses": {
+        "0": true,
+        "1": true,
+        "2": false,
+        "3": true
+      }
+    },
+    {
+      "page_number": 2,
+      "responses": {
+        "0": false,
+        "1": true,
+        "2": false,
+        "3": true
+      }
+    },
+    {
+      "page_number": 3,
+      "responses": {
+        "0": true,
+        "1": false,
+        "2": false,
+        "3": false
+      }
+    },
+    {
+      "page_number": 4,
+      "responses": {
+        "0": true,
+        "1": false,
+        "2": false,
+        "3": true
+      }
+    },
+    {
+      "page_number": 5,
+      "responses": {
+        "0": true,
+        "1": true,
+        "2": true,
+        "3": true
+      }
+    }
+  ],
+  "confirmed_rules": [
+    {
+      "attribute_name": "Loss Amount (Worst-Case Outcome)",
+      "level": "−€20",
+      "rule_type": "unacceptable"
+    },
+    {
+      "attribute_name": "Delay of Outcome",
+      "level": "In 1 week",
+      "rule_type": "unacceptable"
+    }
+  ],
+  "choice_responses": [
+    {
+      "round_number": 2,
+      "chosen_index": 0
+    },
+    {
+      "round_number": 4,
+      "chosen_index": 2
+    },
+    {
+      "round_number": 6,
+      "chosen_index": 1
+    },
+    {
+      "round_number": 8,
+      "chosen_index": 0
+    },
+    {
+      "round_number": 10,
+      "chosen_index": 1
+    }
+  ],
+  "tournament_rounds": [
+    [
+      {
+        "Gain Amount": "€120",
+        "Loss Amount (Worst-Case Outcome)": "−€60",
+        "Probability of Gain": "40%",
+        "Delay of Outcome": "3 months"
+      },
+      {
+        "Gain Amount": "€60",
+        "Loss Amount (Worst-Case Outcome)": "−€60",
+        "Probability of Gain": "80%",
+        "Delay of Outcome": "3 months"
+      },
+      {
+        "Gain Amount": "€20",
+        "Loss Amount (Worst-Case Outcome)": "−€60",
+        "Probability of Gain": "40%",
+        "Delay of Outcome": "1 month"
+      }
+    ]
+  ],
+  "winner": {
+    "Gain Amount": "€60",
+    "Loss Amount (Worst-Case Outcome)": "−€60",
+    "Probability of Gain": "80%",
+    "Delay of Outcome": "3 months"
+  },
+  "level_shown_count": {
+    "Gain Amount": {
+      "€240": 11,
+      "€20": 4,
+      "€120": 4,
+      "€60": 1
+    },
+    "Loss Amount (Worst-Case Outcome)": {
+      "€0": 4,
+      "−€120": 4,
+      "−€60": 9,
+      "−€20": 3
+    },
+    "Probability of Gain": {
+      "20%": 3,
+      "80%": 11,
+      "40%": 4,
+      "60%": 2
+    },
+    "Delay of Outcome": {
+      "3 months": 5,
+      "In 1 week": 6,
+      "1 month": 7,
+      "Immediate": 2
+    }
+  },
+  "level_accepted_count": {
+    "Gain Amount": {
+      "€240": 6,
+      "€120": 3,
+      "€60": 1,
+      "€20": 2
+    },
+    "Loss Amount (Worst-Case Outcome)": {
+      "€0": 4,
+      "−€120": 2,
+      "−€60": 6
+    },
+    "Probability of Gain": {
+      "20%": 1,
+      "80%": 8,
+      "40%": 2,
+      "60%": 1
+    },
+    "Delay of Outcome": {
+      "3 months": 5,
+      "1 month": 5,
+      "Immediate": 1,
+      "In 1 week": 1
+    }
+  },
+  "level_chosen_count": {
+    "Gain Amount": {
+      "€120": 1,
+      "€60": 2,
+      "€20": 1,
+      "€240": 1
+    },
+    "Loss Amount (Worst-Case Outcome)": {
+      "−€60": 4,
+      "−€120": 1
+    },
+    "Probability of Gain": {
+      "40%": 2,
+      "80%": 3
+    },
+    "Delay of Outcome": {
+      "3 months": 4,
+      "1 month": 1
+    }
+  }
+}

@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 
-{% block title %}Choice Task — ACBC Survey{% endblock %}
+{% block title %}Choice Task . ACBC Survey{% endblock %}
 
 {% block progress %}
 <div class="progress-bar">
   <div class="progress-fill" style="width: {{ progress }}%"></div>
 </div>
-<div class="stage-label">Choice Task — Round {{ question.round_number }}</div>
+<div class="stage-label">Choice Task . Round {{ question.round_number }}</div>
 {% endblock %}
 
 {% block content %}
@@ -19,12 +19,24 @@
       {% for scenario in question.scenarios %}
       <label class="scenario-card scenario-selectable">
         <input type="radio" name="chosen" value="{{ loop.index0 }}" required>
+
         <div class="card-inner">
           <h3>Option {{ loop.index }}</h3>
+
           <table class="scenario-table">
             {% for attr_name in attr_names %}
+            {% set defn = (attr_defs | default({})).get(attr_name, "") %}
             <tr>
-              <td class="attr-name">{{ attr_name }}</td>
+              <td class="attr-name">
+                {% if defn %}
+                  <span class="var-help">
+                    <span class="var-label">{{ attr_name }}</span>
+                    <span class="tooltip tooltip--right" role="tooltip">{{ defn }}</span>
+                  </span>
+                {% else %}
+                  {{ attr_name }}
+                {% endif %}
+              </td>
               <td class="attr-value">{{ scenario.levels[attr_name] }}</td>
             </tr>
             {% endfor %}
@@ -33,6 +45,7 @@
       </label>
       {% endfor %}
     </div>
+
     <button type="submit" class="btn btn-primary">Submit Choice</button>
   </form>
 </div>

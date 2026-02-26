@@ -1,18 +1,22 @@
 {% extends "base.html" %}
 
-{% block title %}Build Your Own — ACBC Survey{% endblock %}
-
-{% block progress %}
-<div class="progress-bar">
-  <div class="progress-fill" style="width: {{ progress }}%"></div>
-</div>
-<div class="stage-label">Build Your Own — Participant {{ participant_id }}</div>
-{% endblock %}
+{% block title %}Build Your Own . ACBC Survey{% endblock %}
 
 {% block content %}
 <div class="question-panel">
   <h1>{{ question.prompt }}</h1>
-  <p class="hint">Select the <strong>{{ question.attribute.name }}</strong> you prefer most.</p>
+
+  <p class="hint">
+    Select the
+   <span class="var-help">
+      <span class="var-label"><strong>{{ question.attribute.name }}</strong></span>
+      <button type="button" class="info-btn" aria-label="Show definition for {{ question.attribute.name }}">i</button>
+      <span class="tooltip" role="tooltip">
+        {{ attr_def or "No definition available." }}
+      </span>
+    </span>
+    you prefer most.
+  </p>
 
   <form action="/answer" method="post">
     <div class="option-list">
@@ -23,6 +27,7 @@
       </label>
       {% endfor %}
     </div>
+
     <button type="submit" class="btn btn-primary">Next</button>
   </form>
 </div>

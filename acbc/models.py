@@ -22,6 +22,7 @@ class Attribute(BaseModel):
     """A single attribute with its levels."""
 
     name: str
+    definition: str | None = None
     levels: list[str] = Field(min_length=2)
 
     def __hash__(self) -> int:

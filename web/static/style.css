@@ -493,3 +493,136 @@ footer {
   color: var(--color-text-muted);
   font-size: 0.8rem;
 }
+.logo {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.var-help {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.info-btn {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  color: #374151;
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+
+.info-btn:focus {
+  outline: 2px solid #111827;
+  outline-offset: 2px;
+}
+
+.tooltip {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 10px;
+  width: min(360px, 80vw);
+  background: #111827;
+  color: #fff;
+  font-size: 12.5px;
+  line-height: 1.35;
+  padding: 10px 12px;
+  border-radius: 10px;
+  z-index: 9999;
+
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+  transition: opacity 120ms ease, transform 120ms ease;
+}
+
+.var-help:hover .tooltip,
+/* Allow tooltip to escape card bounds */
+.scenario-card {
+  overflow: visible;
+}
+
+/* Anchor container */
+.var-help {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Info button */
+.info-btn {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  font-size: 12px;
+  line-height: 1;
+  cursor: help;
+}
+
+/* Tooltip base */
+.tooltip {
+  position: absolute;
+  max-width: 260px;
+  background: #111827;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.35;
+  padding: 10px 12px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition: opacity .15s ease, transform .15s ease;
+
+  z-index: 9999;
+}
+
+/* Position: float above value */
+.tooltip--right {
+  left: 100%;
+  top: 50%;
+  transform: translate(12px,-50%);
+}
+
+/* Show on hover OR keyboard focus */
+.var-help:hover .tooltip,
+.var-help:focus-within .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(12px,-50%);
+}
+/* Make label look interactive but subtle */
+.var-label {
+  cursor: help;
+  transition: color .15s ease;
+}
+
+.var-label:hover {
+  color: #111827;
+}
+.tooltip {
+  pointer-events: none;
+}

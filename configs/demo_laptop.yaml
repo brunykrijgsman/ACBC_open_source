@@ -1,10 +1,13 @@
 name: "Decision-Making Under Risk Preferences"
+
 description: >
   A simple demo survey exploring preferences when making decisions under risk.
-  Attributes cover potential upside, rewardvariability, worst-case outcome, and timing.
+  Attributes cover potential upside, reward variability, worst-case outcome, and timing.
 
 attributes:
   - name: Gain Amount
+    definition: >
+      The amount of money you would receive if the outcome is successful.
     levels:
       - "€20"
       - "€60"
@@ -12,6 +15,8 @@ attributes:
       - "€240"
 
   - name: Loss Amount (Worst-Case Outcome)
+    definition: >
+      The amount of money you could lose if the outcome is unsuccessful.
     levels:
       - "€0"
       - "−€20"
@@ -19,6 +24,8 @@ attributes:
       - "−€120"
 
   - name: Probability of Gain
+    definition: >
+      The likelihood that the positive outcome occurs, expressed as a percentage.
     levels:
       - "20%"
       - "40%"
@@ -26,13 +33,14 @@ attributes:
       - "80%"
 
   - name: Delay of Outcome
+    definition: >
+      The time you would need to wait before the outcome is realized.
     levels:
       - Immediate
       - In 1 week
       - 1 month
       - 3 months
 
-# These can be changed to fit the needs of the survey
 settings:
   screening_pages: 5
   scenarios_per_page: 4
