@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# uv
+.uv/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor / IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*.kate-swp
+.cursor/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data / output files (participant data — keep out of version control)
+data/raw/*.json
+acbc_results.csv
+gamble_task_160_trials.csv
+
+# Logs
+*.log

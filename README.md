@@ -107,7 +107,7 @@ from acbc.models import SurveyConfig
 from acbc.engine import ACBCEngine
 from acbc.analysis import analyze_counts, analyze_monotone, analyze_bayesian_logit
 
-config = SurveyConfig.from_yaml("configs/demo_laptop.yaml")
+config = SurveyConfig.from_yaml("configs/development.yaml")
 engine = ACBCEngine(config, seed=42)
 
 while not engine.is_complete:
@@ -119,6 +119,98 @@ while not engine.is_complete:
 results = engine.get_results()
 analysis = analyze_bayesian_logit(results, seed=42)
 print(analysis.to_json())
+```
+
+## Deploying to SURF Research Cloud
+
+The web interface can be deployed to [SURF Research Cloud](https://www.surf.nl/en/surf-research-cloud) using Docker.
+
+### Prerequisites
+
+- A SURF Research Cloud workspace using the **Docker Environment** catalog item (≥2 vCPU, ≥4 GB RAM)
+- SSH access to the workspace
+- The repository cloned on the VM (or run the one-liner below)
+
+### One-line deploy
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/brunykrijgsman/ACBC_open_source/main/deploy.sh | bash
+```
+
+This will:
+1. Clone the `main` branch to `/opt/acbc`
+2. Create `configs/production.yaml` from the demo template (if not present)
+3. Build and start the app + nginx via Docker Compose
+4. Run a health check
+
+### Manual deploy
+
+```bash
+# Clone the main branch
+git clone -b main https://github.com/brunykrijgsman/ACBC_open_source.git /opt/acbc
+cd /opt/acbc
+
+# Create and edit the production config
+cp configs/development.yaml configs/production.yaml
+nano configs/production.yaml   # set your study attributes
+
+# Start services
+docker compose up -d --build
+
+# Check everything is running
+docker compose ps
+curl -s -o /dev/null -w "%{http_code}" http://localhost/   # → 200
+```
+
+The app is then accessible at the workspace's public SURF URL (HTTPS is handled by SURF's load balancer).
+
+### SSH access
+
+```bash
+ssh <user>@acbcproduction.adaptivechoice.src.surf-hosted.nl
+```
+
+### Checking Docker status
+
+```bash
+docker ps -a                                      # all containers and their status
+docker compose -f /opt/acbc/docker-compose.yml ps # acbc service status
+docker compose -f /opt/acbc/docker-compose.yml logs acbc --tail 50  # recent logs
+```
+
+### Updating
+
+```bash
+cd /opt/acbc && git pull origin main && docker compose up -d --build
+```
+
+> Restart drops any in-progress participant sessions (sessions are in-memory only). Do this outside active data collection hours.
+
+### Participant data
+
+Stored on a SURF persistent storage volume at `~/data/acbc-storage/acbc/` on the server. Survives container rebuilds and workspace restarts.
+
+View data on the server:
+
+```bash
+ls ~/data/acbc-storage/acbc/raw/
+```
+
+Download data locally (from the repo root):
+
+```bash
+uv run pull_data.py <user>@<server-ip>
+# or set once and reuse:
+export SERVER=<user>@<server-ip>
+uv run pull_data.py
+```
+
+This rsyncs all participant files to `./data/`. Safe to re-run — only transfers new/changed files.
+
+### Running aggregate analysis
+
+```bash
+docker compose exec acbc .venv/bin/python main.py aggregate --data-dir /data
 ```
 
 ## References

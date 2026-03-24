@@ -18,7 +18,7 @@ import argparse
 import sys
 from pathlib import Path
 
-DEFAULT_CONFIG = Path(__file__).parent / "configs" / "demo_laptop.yaml"
+DEFAULT_CONFIG = Path(__file__).parent / "configs" / "development.yaml"
 
 
 def main() -> None:
