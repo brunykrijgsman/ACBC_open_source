@@ -5,8 +5,8 @@
 """Pull survey data from the production server to ./data/
 
 Usage:
-    uv run pull_data.py <user>          # explicit user
-    USER=bkrijgsman uv run pull_data.py # via env var
+    uv run scripts/pull_data.py <user>          # explicit user
+    USER=bkrijgsman uv run scripts/pull_data.py # via env var
 """
 
 import os
@@ -24,7 +24,7 @@ elif "USER" in os.environ:
     user = os.environ["USER"]
 else:
     print("Error: provide username as argument or set USER env var")
-    print(f"  uv run pull_data.py <user>")
+    print(f"  uv run scripts/pull_data.py <user>")
     sys.exit(1)
 
 LOCAL_PATH.mkdir(exist_ok=True)

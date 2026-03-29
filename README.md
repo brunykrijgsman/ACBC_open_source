@@ -199,10 +199,9 @@ ls ~/data/acbc-storage/acbc/raw/
 Download data locally (from the repo root):
 
 ```bash
-uv run pull_data.py <user>@<server-ip>
-# or set once and reuse:
-export SERVER=<user>@<server-ip>
-uv run pull_data.py
+uv run scripts/pull_data.py <user>
+# or via env var:
+USER=<user> uv run scripts/pull_data.py
 ```
 
 This rsyncs all participant files to `./data/`. Safe to re-run — only transfers new/changed files.
