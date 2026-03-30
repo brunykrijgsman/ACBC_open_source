@@ -40,7 +40,7 @@ pilot-acbc-ddm/
 │       ├── choice.html    # Choice Tournament stage
 │       └── complete.html  # Results page
 ├── configs/               # YAML survey definitions
-│   └── demo_laptop.yaml   # Example config
+│   └── development.yaml   # Example config
 ├── data/                  # Auto-created output directory
 │   ├── raw/               # One JSON per participant (full responses)
 │   └── analysis/          # One JSON per participant × method (utilities)
@@ -84,7 +84,7 @@ pilot-acbc-ddm/
 
 ### 1. Configuration Loading
 
-Everything begins with a YAML config file. Example (`configs/demo_laptop.yaml`):
+Everything begins with a YAML config file. Example (`configs/development.yaml`):
 
 ```yaml
 name: "Decision-Making Under Risk Preferences"

@@ -40,4 +40,4 @@ settings:  # all optional, shown with defaults
 
 ## Existing Configs
 
-- `demo_laptop.yaml` — Simple laptop purchase demo with 6 attributes (Brand, Price, RAM, Storage, Screen Size, Battery Life).
+- `development.yaml` — Default development config for local testing.
