@@ -140,7 +140,7 @@ The engine is a **state machine** that progresses through stages. The frontend d
 
 ```python
 while not engine.is_complete:
-    question = engine.get_current_question()   # Engine says "ask this"
+    question = engine.get_current_question()    # Engine says "ask this"
     answer = collect_from_respondent(question)  # Frontend gets the answer
     engine.submit_answer(answer)                # Engine processes and advances
 ```

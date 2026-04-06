@@ -178,7 +178,10 @@ docker compose -f /opt/acbc/docker-compose.yml ps # acbc service status
 docker compose -f /opt/acbc/docker-compose.yml logs acbc --tail 50  # recent logs
 ```
 
-### Updating
+### Updating / Deploying a new version
+
+1. Commit and push your changes to the main branch
+2. Run the following command on the server:
 
 ```bash
 cd /opt/acbc && git pull origin main && docker compose up -d --build

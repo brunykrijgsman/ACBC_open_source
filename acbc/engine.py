@@ -67,6 +67,7 @@ class ACBCEngine:
 
         # Tournament state
         self._tournament_rounds: list[list[Scenario]] = []
+        self._all_tournament_rounds: list[list[Scenario]] = []  # accumulates every round
         self._tournament_round_index = 0
         self._tournament_winners: list[Scenario] = []
 
@@ -154,7 +155,7 @@ class ACBCEngine:
             "screening_responses": self._state.screening_responses,
             "confirmed_rules": self._state.confirmed_rules,
             "choice_responses": self._state.choice_responses,
-            "tournament_rounds": self._tournament_rounds,
+            "tournament_rounds": self._all_tournament_rounds,
             "winner": self._state.winner,
             "level_shown_count": self._state.level_shown_count,
             "level_accepted_count": self._state.level_accepted_count,
@@ -339,6 +340,7 @@ class ACBCEngine:
         # First round: chunk the pool
         group_size = self._config.settings.choice_tournament_size
         self._tournament_rounds = chunk_tournament_pool(pool, group_size)
+        self._all_tournament_rounds = list(self._tournament_rounds)
         self._tournament_round_index = 0
         self._tournament_winners = []
         self._state.tournament_round = 0
@@ -363,6 +365,7 @@ class ACBCEngine:
             self._tournament_rounds = chunk_tournament_pool(
                 self._tournament_winners, group_size
             )
+            self._all_tournament_rounds.extend(self._tournament_rounds)
             self._tournament_winners = []
             self._tournament_round_index = 0
 

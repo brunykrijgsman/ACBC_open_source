@@ -478,6 +478,16 @@ body {
   margin-bottom: 1.5rem;
 }
 
+.return-notice {
+  background: #eff6ff;
+  border: 1.5px solid #3b82f6;
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem auto;
+  max-width: 28rem;
+  font-size: 1rem;
+}
+
 .data-note code {
   background: var(--color-accent);
   padding: 0.15rem 0.4rem;
