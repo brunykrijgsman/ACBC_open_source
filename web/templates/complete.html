@@ -13,7 +13,7 @@
 <div class="question-panel complete-panel">
   <div class="complete-icon">&#10003;</div>
   <h1>Thank you!</h1>
-  <p>Your responses have been recorded as participant <strong>{{ participant_id }}</strong>.</p>
+  # <p>Your responses have been recorded as participant <strong>{{ participant_id }}</strong>.</p>
 
   {% if winner %}
   <h2>Your most preferred option</h2>
@@ -29,8 +29,8 @@
   </div>
   {% endif %}
 
-  <p class="data-note">Raw data saved to <code>{{ output_dir }}/raw/</code></p>
-
-  <a href="/" class="btn btn-secondary">Start new session</a>
+  <div class="return-notice">
+    <p><strong>You can now close this tab and return to the main survey in Qualtrics to continue.</strong></p>
+  </div>
 </div>
 {% endblock %}

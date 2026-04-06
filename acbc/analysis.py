@@ -414,6 +414,10 @@ def _build_choice_data(
     for round_scenarios, response in zip(tournament_rounds, choice_responses):
         if not round_scenarios:
             continue
+        # Guard against legacy data where tournament_rounds only captured the
+        # final round, causing chosen_index to exceed the number of scenarios.
+        if response.chosen_index >= len(round_scenarios):
+            continue
         X_task = np.array([
             _encode_scenario(sc.levels, attr_names, attr_levels, level_to_col)
             for sc in round_scenarios
