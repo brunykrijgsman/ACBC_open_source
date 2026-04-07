@@ -106,16 +106,17 @@ def create_app(
     # --------------------------------------------------
 
     @app.get("/", response_class=HTMLResponse)
-    async def welcome(request: Request):
+    async def welcome(request: Request, pid: str | None = None):
         return templates.TemplateResponse(
             "welcome.html",
-            {"request": request, "config": _config},
+            {"request": request, "config": _config, "pid": pid},
         )
 
     @app.post("/start")
     async def start(request: Request):
+        form = await request.form()
+        pid = str(form.get("pid") or _next_participant_id())
         engine = ACBCEngine(_config, seed=_seed)
-        pid = _next_participant_id()
         sid = uuid.uuid4().hex
 
         sessions[sid] = {
