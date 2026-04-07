@@ -15,6 +15,9 @@
   </p>
 
   <form action="/start" method="post">
+    {% if pid %}
+      <input type="hidden" name="pid" value="{{ pid }}">
+    {% endif %}
     <button type="submit" class="btn btn-primary btn-large">Start Task</button>
   </form>
 </div>
